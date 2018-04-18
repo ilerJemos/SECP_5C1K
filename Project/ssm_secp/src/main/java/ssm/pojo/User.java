@@ -1,13 +1,13 @@
 package ssm.pojo;
 
-import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public class User {
     private String name;
     private String passwd;
     private int id;
     public void setName(String name){
-
         this.name=name;
     }
     public void setPasswd(String passwd){

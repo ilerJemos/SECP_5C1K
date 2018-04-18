@@ -11,7 +11,8 @@
     <title>Login</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/user/login" method="post">
+<%--${pageContext.request.contextPath }--%>
+<form action="/user/checkLogin" method="post">
     <table border="1">
         <tr>
             <td>用户名</td>

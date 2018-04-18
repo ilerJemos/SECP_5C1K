@@ -7,6 +7,8 @@ import ssm.pojo.User;
 import ssm.dao.IUserDao;
 import ssm.service.IUserService;
 
+import javax.annotation.Resource;
+
 /**
  * 业务层
  * @author Nocol
@@ -16,19 +18,30 @@ import ssm.service.IUserService;
 @Service
 public class UserServiceImpl implements IUserService {
 
+    //
     @Autowired
     private IUserDao userDao;
 
     @Override
     public void regist(User user) {
         // TODO Auto-generated method stub
-        userDao.addUser(user);
+        //userDao.addUser(user);;
     }
 
+//    @Override
+//    public void login(String name, String password) {
+//        // TODO Auto-generated method stub
+//        userDao.findUserByNameAndPwd(name,password);
+//    }
     @Override
-    public void login(String name, String password) {
-        // TODO Auto-generated method stub
-        userDao.findUserByNameAndPwd(name,password);
+    public User checkLogin(String name, String passwd) {
+
+        User user = userDao.findByUsername(name);
+        if(user != null && user.getPasswd().equals(passwd)){
+
+            return user;
+        }
+        return null;
     }
 }
 

@@ -11,7 +11,20 @@
     <title>Success</title>
 </head>
 <body>
-    <br>${msg }</br>
-    <a href="${pageContext.request.contextPath }/login.jsp">去登录</a>
+
+    <div>
+        <strong> welcome,${sessionScope.user.username}! </strong>
+    </div>
+    this is success page!
+
+    <a href="/userLogin/user/anotherpage">点我跳到另一个页面</a>
+
+    <form action="/userLogin/user/outLogin">
+        <table>
+            <tr>
+                <td><input type="submit" value="退出登录"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
