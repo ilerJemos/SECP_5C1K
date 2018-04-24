@@ -12,15 +12,15 @@
 </head>
 <body>
 <%--${pageContext.request.contextPath }--%>
-<form action="/user/checkLogin" method="post">
+<form action="/user/checkLogin.do" method="post">
     <table border="1">
         <tr>
             <td>用户名</td>
-            <td><input id = "name" type="text" name="name"></td>
+            <td><input type="text" name="name"></td>
         </tr>
         <tr>
-            j<td>密码</td>
-            <td><input id = "password" type="text" name="password"></td>
+            <td>密码</td>
+            <td><input  type="text" name="passwd"></td>
         </tr>
         <tr>
             <td><input type="submit" value="登录"></td>

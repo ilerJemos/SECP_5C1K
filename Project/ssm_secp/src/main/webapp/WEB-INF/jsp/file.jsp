@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>上传文件</h1>
-    <form method="post" action="/user/doUpload" enctype="multipart/form-data">
+    <form method="post" action="/user/doUpload.do" enctype="multipart/form-data">
         <input type="file" name="file"/>
         <input type="submit" value="上传文件"/>
     </form>

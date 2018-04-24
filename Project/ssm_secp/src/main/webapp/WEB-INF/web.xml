@@ -14,13 +14,13 @@
     <param-value>classpath:spring-mybatis.xml</param-value>
   </context-param>
     <!--Log4j配置-->
-    <!--<context-param>-->
-    <!--<param-name>log4jRefreshInterval</param-name>-->
-    <!--<param-value>60000</param-value>-->
-  <!--</context-param>-->
-    <!--<listener>-->
-    <!--<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>-->
-  <!--</listener>-->
+    <context-param>
+    <param-name>log4jRefreshInterval</param-name>
+    <param-value>60000</param-value>
+  </context-param>
+    <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
     <!-- 编码过滤器 -->
     <filter>
     <filter-name>encodingFilter</filter-name>
@@ -34,7 +34,6 @@
     <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
-    <url-pattern>/.do</url-pattern>
   </filter-mapping>
      <!--Spring监听器-->
     <listener>
@@ -59,7 +58,8 @@
       <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
-        <url-pattern>/</url-pattern>
+          <url-pattern>*.do</url-pattern>
+        <!--<url-pattern>/</url-pattern>-->
     </servlet-mapping>
 
       <!-- 配置SESSION超时，单位是分钟 -->
@@ -67,23 +67,23 @@
         <session-timeout>15</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>/index</welcome-file>
     </welcome-file-list>
 
-    <!-- 错误跳转页面 -->
-    <error-page>
-        <!-- 路径不正确 -->
-        <error-code>404</error-code>
-        <location>/WEB-INF/errorpage/404.jsp</location>
-    </error-page>
-    <error-page>
-        <!-- 没有访问权限，访问被禁止 -->
-        <error-code>405</error-code>
-        <location>/WEB-INF/errorpage/405.jsp</location>
-    </error-page>
-    <error-page>
-        <!-- 内部错误 -->
-        <error-code>500</error-code>
-        <location>/WEB-INF/errorpage/500.jsp</location>
-    </error-page>
+    <!--&lt;!&ndash; 错误跳转页面 &ndash;&gt;-->
+    <!--<error-page>-->
+        <!--&lt;!&ndash; 路径不正确 &ndash;&gt;-->
+        <!--<error-code>404</error-code>-->
+        <!--<location>/WEB-INF/errorpage/404.jsp</location>-->
+    <!--</error-page>-->
+    <!--<error-page>-->
+        <!--&lt;!&ndash; 没有访问权限，访问被禁止 &ndash;&gt;-->
+        <!--<error-code>405</error-code>-->
+        <!--<location>/WEB-INF/errorpage/405.jsp</location>-->
+    <!--</error-page>-->
+    <!--<error-page>-->
+        <!--&lt;!&ndash; 内部错误 &ndash;&gt;-->
+        <!--<error-code>500</error-code>-->
+        <!--<location>/WEB-INF/errorpage/500.jsp</location>-->
+    <!--</error-page>-->
 </web-app>

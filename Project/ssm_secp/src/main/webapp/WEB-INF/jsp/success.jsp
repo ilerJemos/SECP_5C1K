@@ -17,9 +17,9 @@
     </div>
     this is success page!
 
-    <a href="/userLogin/user/anotherpage">点我跳到另一个页面</a>
+    <a href="/user/anotherpage.do">点我跳到另一个页面</a>
 
-    <form action="/userLogin/user/outLogin">
+    <form action="/user/outLogin.do">
         <table>
             <tr>
                 <td><input type="submit" value="退出登录"></td>
