@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ssm_secp" />
+        <module name="ssmsecp03" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ssm_secp" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

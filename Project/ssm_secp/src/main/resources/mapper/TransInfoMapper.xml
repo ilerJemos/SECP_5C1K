@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.TransInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.pojo.TransInfo" >
+    <id column="infoID" property="infoid" jdbcType="BIGINT" />
+    <result column="typeInfo" property="typeinfo" jdbcType="VARCHAR" />
+    <result column="typeID" property="typeid" jdbcType="INTEGER" />
+    <result column="fromAdd" property="fromadd" jdbcType="VARCHAR" />
+    <result column="fromX" property="fromx" jdbcType="DOUBLE" />
+    <result column="fromY" property="fromy" jdbcType="DOUBLE" />
+    <result column="toAdd" property="toadd" jdbcType="VARCHAR" />
+    <result column="toX" property="tox" jdbcType="DOUBLE" />
+    <result column="toY" property="toy" jdbcType="DOUBLE" />
+    <result column="isTotal" property="istotal" jdbcType="CHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    infoID, typeInfo, typeID, fromAdd, fromX, fromY, toAdd, toX, toY, isTotal, num, weight
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from cargoinfo
+    where infoID = #{infoid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from cargoinfo
+    where infoID = #{infoid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ssm.pojo.TransInfo" >
+    insert into cargoinfo (infoID, typeInfo, typeID, 
+      fromAdd, fromX, fromY, 
+      toAdd, toX, toY, isTotal, 
+      num, weight)
+    values (#{infoid,jdbcType=BIGINT}, #{typeinfo,jdbcType=VARCHAR}, #{typeid,jdbcType=INTEGER}, 
+      #{fromadd,jdbcType=VARCHAR}, #{fromx,jdbcType=DOUBLE}, #{fromy,jdbcType=DOUBLE}, 
+      #{toadd,jdbcType=VARCHAR}, #{tox,jdbcType=DOUBLE}, #{toy,jdbcType=DOUBLE}, #{istotal,jdbcType=CHAR}, 
+      #{num,jdbcType=INTEGER}, #{weight,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssm.pojo.TransInfo" >
+    insert into cargoinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="infoid != null" >
+        infoID,
+      </if>
+      <if test="typeinfo != null" >
+        typeInfo,
+      </if>
+      <if test="typeid != null" >
+        typeID,
+      </if>
+      <if test="fromadd != null" >
+        fromAdd,
+      </if>
+      <if test="fromx != null" >
+        fromX,
+      </if>
+      <if test="fromy != null" >
+        fromY,
+      </if>
+      <if test="toadd != null" >
+        toAdd,
+      </if>
+      <if test="tox != null" >
+        toX,
+      </if>
+      <if test="toy != null" >
+        toY,
+      </if>
+      <if test="istotal != null" >
+        isTotal,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="infoid != null" >
+        #{infoid,jdbcType=BIGINT},
+      </if>
+      <if test="typeinfo != null" >
+        #{typeinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="fromadd != null" >
+        #{fromadd,jdbcType=VARCHAR},
+      </if>
+      <if test="fromx != null" >
+        #{fromx,jdbcType=DOUBLE},
+      </if>
+      <if test="fromy != null" >
+        #{fromy,jdbcType=DOUBLE},
+      </if>
+      <if test="toadd != null" >
+        #{toadd,jdbcType=VARCHAR},
+      </if>
+      <if test="tox != null" >
+        #{tox,jdbcType=DOUBLE},
+      </if>
+      <if test="toy != null" >
+        #{toy,jdbcType=DOUBLE},
+      </if>
+      <if test="istotal != null" >
+        #{istotal,jdbcType=CHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.pojo.TransInfo" >
+    update cargoinfo
+    <set >
+      <if test="typeinfo != null" >
+        typeInfo = #{typeinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        typeID = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="fromadd != null" >
+        fromAdd = #{fromadd,jdbcType=VARCHAR},
+      </if>
+      <if test="fromx != null" >
+        fromX = #{fromx,jdbcType=DOUBLE},
+      </if>
+      <if test="fromy != null" >
+        fromY = #{fromy,jdbcType=DOUBLE},
+      </if>
+      <if test="toadd != null" >
+        toAdd = #{toadd,jdbcType=VARCHAR},
+      </if>
+      <if test="tox != null" >
+        toX = #{tox,jdbcType=DOUBLE},
+      </if>
+      <if test="toy != null" >
+        toY = #{toy,jdbcType=DOUBLE},
+      </if>
+      <if test="istotal != null" >
+        isTotal = #{istotal,jdbcType=CHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where infoID = #{infoid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.pojo.TransInfo" >
+    update cargoinfo
+    set typeInfo = #{typeinfo,jdbcType=VARCHAR},
+      typeID = #{typeid,jdbcType=INTEGER},
+      fromAdd = #{fromadd,jdbcType=VARCHAR},
+      fromX = #{fromx,jdbcType=DOUBLE},
+      fromY = #{fromy,jdbcType=DOUBLE},
+      toAdd = #{toadd,jdbcType=VARCHAR},
+      toX = #{tox,jdbcType=DOUBLE},
+      toY = #{toy,jdbcType=DOUBLE},
+      isTotal = #{istotal,jdbcType=CHAR},
+      num = #{num,jdbcType=INTEGER},
+      weight = #{weight,jdbcType=DOUBLE}
+    where infoID = #{infoid,jdbcType=BIGINT}
+  </update>
+</mapper>
