@@ -11,10 +11,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <title>Homepage</title>
-    
+    <style>
+	body{
+		background:url(../images/1.jpg);
+		background-size:90%,100%;
+		overflow:hidden;
+	}
+</style>
   </head>
   
-  <body>
-    这是主页
+  <body >
+    <div><p style="margin-left:300px;margin-top:200px;font-size:50px;color:white"> Welcome !</p></div>
+
+    <div style="margin-left:300px;margin-top:300px;font-size:20px;color:white"> 
+        <p>Using the software, users can input railway freight data</p>
+        <p>You can set filter conditions on the map to display railway freight data</p>
+        <p>You can analyze the freight data</p>
+        <p>You can analyze the optimal freight transportation route and forecast the freight</p>
+    </div>
   </body>
 </html>

@@ -397,7 +397,7 @@ $(function(){
 	var menu = [{"id":"1","name":"Menu","parentId":"0","url":"","icon":"","order":"1","isHeader":"1","childMenus":[
 					{"id":"3","name":"Management","parentId":"1","url":"","icon":"&#xe600;","order":"1","isHeader":"0","childMenus":[
 						{"id":"4","name":"Search","parentId":"3","url":"home/search.jsp","icon":"","order":"1","isHeader":"0","childMenus":""},
-						{"id":"5","name":"Skim","parentId":"3","url":"home/skim.jsp","icon":"","order":"1","isHeader":"0","childMenus":""}
+						{"id":"5","name":"Statistics","parentId":"3","url":"home/skim.jsp","icon":"","order":"1","isHeader":"0","childMenus":""}
 					]},
 					{"id":"6","name":"Freight Present","parentId":"1","url":"","icon":"&#xe600;","order":"1","isHeader":"0","childMenus":[
 						{"id":"7","name":"Show Map","parentId":"6","url":"home/showmap.jsp","icon":"","order":"1","isHeader":"0","childMenus":""},

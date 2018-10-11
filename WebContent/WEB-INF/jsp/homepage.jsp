@@ -28,8 +28,8 @@
 					<a href="javascript:;">admin<i class="icon-font" style="margin-left:5px;">&#xe60c;</i></a>
 					<ul class="header-dropdown-menu">
 						<li><a href="javascript:;">Account</a></li>
-						<li><a href="javascript:;">Switch</a></li>
-						<li><a href="javascript:;">Log out</a></li>
+						<li><a href="index.jsp">Switch</a></li>
+						<li><a href="index.jsp">Log out</a></li>
 					</ul>
 				</li>
 				<li class="header-bar-nav"> 

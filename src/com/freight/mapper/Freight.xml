@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.freight.mapper.FreightMapper">
+		<resultMap id="nameMap" type="Score">
+       		<id property="name" column="f_name"/>
+      		<result property="num" column="num"/>
+    	</resultMap>
+
+    	<resultMap id="fromMap" type="Score">
+       		<id property="name" column="f_from_city"/>
+      		<result property="num" column="num"/>
+    	</resultMap>
+
+    	<resultMap id="toMap" type="Score">
+       		<id property="name" column="f_to_city"/>
+      		<result property="num" column="num"/>
+    	</resultMap>
+
+	    <insert id="insertFreight" parameterType="Freight">
+			insert into freight(f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton) values(#{f_name},#{f_name_code},#{f_from_city},#{f_from_longitude},#{f_from_latitude},#{f_to_city},#{f_to_longitude},#{f_to_latitude},#{f_total},#{f_truck_num},#{f_ton})
+	    </insert>
+	    
+	    <select id="SearchFreightByName" parameterType="int" resultType="Freight">
+	        select f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton from freight where f_name = #{str}
+	    </select>
+	    
+	    <select id="SearchFreightByFrom" parameterType="int" resultType="Freight">
+	        select f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton from freight where f_from_city = #{str}
+	    </select>
+	    
+	    <select id="SearchFreightByTo" parameterType="int" resultType="Freight">
+	        select f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton from freight where f_to_city = #{str}
+	    </select>
+
+	    <select id="SearchScoreByName" resultMap="nameMap">
+	        select f_name,sum(f_ton) as num from freight group by f_name order by num desc limit 8
+	    </select>
+
+	    <select id="SearchScoreByFrom" resultMap="fromMap">
+	        select f_from_city,sum(f_ton) as num from freight group by f_from_city order by num desc limit 8
+	    </select>
+
+	    <select id="SearchScoreByTo" resultMap="toMap">
+	        select f_to_city,sum(f_ton) as num from freight group by f_to_city order by num desc limit 8
+	    </select>
+	</mapper>
+

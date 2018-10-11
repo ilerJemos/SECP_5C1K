@@ -30,10 +30,10 @@ public class UserController {
         if(user!=null){
             session.setAttribute("user", user);
             //mv.setView(new RedirectView("homepage"));
-            mv.setViewName("homepage");
+            mv.setViewName("/WEB-INF/jsp/homepage");
         }else {
             //mv.addObject("message","account error");
-            mv.setViewName("no_user");
+            mv.setViewName("/WEB-INF/jsp/no_user");
         }
         return mv;
     }
@@ -41,16 +41,16 @@ public class UserController {
 	@RequestMapping(value="/register")
 	public ModelAndView register(String user,String passwd,String qq,ModelAndView mv,HttpSession session){
 		if(!qq.equals(c)){
-			mv.setViewName("codeerror");
+			mv.setViewName("/WEB-INF/jsp/codeerror");
 			return mv;
 		}
 		
 		HashUtil hash = new HashUtil();
 		passwd = hash.hash(passwd, "SHA1");
         if(userService.registerUser(user, passwd)){
-        	mv.setViewName("jump");
+        	mv.setViewName("/WEB-INF/jsp/jump");
         }else{
-        	mv.setViewName("registerfail");
+        	mv.setViewName("/WEB-INF/jsp/registerfail");
         }
         return mv;
     }

@@ -11,6 +11,7 @@ import com.freight.service.UserService;
 public class UserServiceImpl implements UserService{
 	@Autowired
 	UserMapper userMapper;
+	
 	@Override
 	public User findUserByNameandPassword(String name, String password) {
 		return userMapper.findUserByNameandPassword(name, password);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.freight.mapper.StrategyMapper">
+	    <select id="SearchFreightByName" parameterType="String" resultType="Freight">
+			select f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton from freight from freight where f_name = #{name}
+	    </select>
+
+	    <select id="SearchFreightByFrom" parameterType="String" resultType="Freight">
+			select f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton from freight from freight where f_from_city = #{from}
+	    </select>
+
+	    <select id="SearchFreightByTo" parameterType="String" resultType="Freight">
+			select f_name,f_name_code,f_from_city,f_from_longitude,f_from_latitude,f_to_city,f_to_longitude,f_to_latitude,f_total,f_truck_num,f_ton from freight from freight where f_to_city = #{to}
+	    </select>
+	</mapper>
+
